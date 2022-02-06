@@ -26,7 +26,15 @@ const animals = [
  * getTotalCount(animals); //> 28
  * getTotalCount([]); //> 0 // returns 0 if the input array is empty
  */
-function getTotalCount(animals) {}
+function getTotalCount(animals) {
+  let farm = 0;
+
+  for(let i = 0; i < animals.length; i++){
+    farm += animals[i].count;
+    }
+
+  return farm;
+}
 
 /**
  * FUNCTION DESCRIPTION
@@ -40,7 +48,16 @@ function getTotalCount(animals) {}
  * getAllKinds(animals); //> ["Pig", "Cow", "Chicken", "Horse", "Dog", "Cat"]
  * getAllKinds([]); //> [] // returns empty array if input array is empty
  */
-function getAllKinds(animals) {}
+function getAllKinds(animals) {
+  let names = [];
+
+  for (let i = 0; i < animals.length; i++){
+    description = animals[i].kind;
+    names.push(description);
+  }
+
+  return names;
+}
 
 /**
  * FUNCTION DESCRIPTION
@@ -59,7 +76,17 @@ function getAllKinds(animals) {}
   ];
  * filterByCountMinimum([], 3); //> [] // returns empty array if input array is empty
  */
-function filterByCountMinimum(animals, minimum) {}
+function filterByCountMinimum(animals, minimum) {
+  let moreThan = [];
+
+  for(let i = 0; i < animals.length; i++){
+    if(animals[i].count >= minimum){
+      moreThan.push(animals[i]);
+    }
+  }
+
+  return moreThan;
+}
 
 /**
  * FUNCTION DESCRIPTION
@@ -73,7 +100,18 @@ function filterByCountMinimum(animals, minimum) {}
  * getMostCommonAnimal(animals); //> { kind: "Chicken", count: 11 }
  * getMostCommonAnimal([]); //> null // returns null if the input is empty
  */
-function getMostCommonAnimal(animals) {}
+function getMostCommonAnimal(animals) {
+  let most = null;
+
+  for(let i = 0; i < animals.length; i++){
+    let greatest = animals[0].count;
+    if(animals[i].count > greatest){
+      most = animals[i];
+    }
+  }
+  return most;
+}
+//no clue why that second x will not change. Also not entirely sure why it skips the first index and goes straight to the end. 
 
 // Do not change anything below this line.
 module.exports = {
